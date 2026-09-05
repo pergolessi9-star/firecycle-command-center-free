@@ -6,65 +6,23 @@
   <meta name="description" content="FIRECYCLE® Command Center — inteligencia territorial, prevención de incendios, evidencia, restauración y bioeconomía." />
   <title>FIRECYCLE® Command Center</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="visual-c1-c3.css" />
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar" aria-label="Navegación FIRECYCLE">
-      <div class="brand">
-        <div class="brand-mark">FC</div>
-        <div><strong>FIRECYCLE®</strong><span>COMMAND CENTER</span></div>
-      </div>
-      <div class="scope-card">
-        <span class="eyebrow">CONTEXTO TERRITORIAL</span>
-        <strong>Pinofranqueado–Las Hurdes</strong>
-        <div class="scope-row"><span>DEMO-100HA-01</span><b>100 ha</b></div>
-        <div class="scope-row"><span>Contexto</span><b>3.765,34 ha</b></div>
-      </div>
+      <div class="brand"><div class="brand-mark">FC</div><div><strong>FIRECYCLE®</strong><span>COMMAND CENTER</span></div></div>
+      <div class="scope-card"><span class="eyebrow">CONTEXTO TERRITORIAL</span><strong>Pinofranqueado–Las Hurdes</strong><div class="scope-row"><span>DEMO-100HA-01</span><b>100 ha</b></div><div class="scope-row"><span>Contexto</span><b>3.765,34 ha</b></div></div>
       <nav id="mainNav"></nav>
-      <div class="sidebar-footer">
-        <span class="truth-badge defined">DEFINED</span>
-        <small>Interfaz demostrativa. Ningún dato se declara operacional sin evidencia.</small>
-      </div>
+      <div class="sidebar-footer"><span class="truth-badge defined">DEFINED</span><small>Interfaz demostrativa. Ningún dato se declara operacional sin evidencia.</small></div>
     </aside>
-
     <main class="main">
-      <header class="topbar">
-        <div>
-          <div id="breadcrumb" class="breadcrumb">FIRECYCLE / C1</div>
-          <h1 id="pageTitle">Executive Command Center</h1>
-        </div>
-        <div class="top-actions">
-          <button id="truthLegendBtn" class="ghost-btn">Estados de verdad</button>
-          <div class="system-status"><span class="status-dot"></span> Demo local</div>
-        </div>
-      </header>
-
-      <section id="truthLegend" class="legend hidden" aria-live="polite">
-        <strong>Estados de verdad</strong>
-        <div class="legend-grid">
-          <span><i class="truth-badge verified">VERIFIED</i> evidencia validada</span>
-          <span><i class="truth-badge observed">OBSERVED</i> observación registrada</span>
-          <span><i class="truth-badge calculated">CALCULATED</i> resultado reproducible</span>
-          <span><i class="truth-badge estimated">ESTIMATED</i> estimación explícita</span>
-          <span><i class="truth-badge defined">DEFINED</i> estructura definida</span>
-          <span><i class="truth-badge hold">HOLD</i> bloqueado hasta evidencia</span>
-          <span><i class="truth-badge na">NOT AVAILABLE</i> dato no disponible</span>
-        </div>
-      </section>
-
+      <header class="topbar"><div><div id="breadcrumb" class="breadcrumb">FIRECYCLE / C1</div><h1 id="pageTitle">Executive Command Center</h1></div><div class="top-actions"><button id="truthLegendBtn" class="ghost-btn">Estados de verdad</button><div class="system-status"><span class="status-dot"></span> Demo local</div></div></header>
+      <section id="truthLegend" class="legend hidden" aria-live="polite"><strong>Estados de verdad</strong><div class="legend-grid"><span><i class="truth-badge verified">VERIFIED</i> evidencia validada</span><span><i class="truth-badge observed">OBSERVED</i> observación registrada</span><span><i class="truth-badge calculated">CALCULATED</i> resultado reproducible</span><span><i class="truth-badge estimated">ESTIMATED</i> estimación explícita</span><span><i class="truth-badge defined">DEFINED</i> estructura definida</span><span><i class="truth-badge hold">HOLD</i> bloqueado hasta evidencia</span><span><i class="truth-badge na">NOT AVAILABLE</i> dato no disponible</span></div></section>
       <section id="content" class="content"></section>
     </main>
   </div>
-
-  <dialog id="detailDialog" class="detail-dialog">
-    <button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button>
-    <div id="dialogContent"></div>
-  </dialog>
-
-  <script src="data.js"></script>
-  <script src="c4-data.js"></script>
-  <script src="app.js"></script>
-  <script src="c3.js"></script>
-  <script src="c4.js"></script>
+  <dialog id="detailDialog" class="detail-dialog"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><div id="dialogContent"></div></dialog>
+  <script src="data.js"></script><script src="c4-data.js"></script><script src="app.js"></script><script src="c3.js"></script><script src="c4.js"></script><script src="visual-c1-c3.js"></script>
 </body>
 </html>
