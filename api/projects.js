@@ -47,11 +47,13 @@ module.exports = async function handler(req, res) {
         error.code = 'PROJECT_SLUG_EXISTS';
         throw error;
       }
+
       const inserted = await client.query(`
         INSERT INTO projects (slug, name, description, status, metadata)
         VALUES ($1, $2, $3, 'ACTIVE', $4::jsonb)
         RETURNING id, slug, name, description, status, metadata, created_at, updated_at
       `, [requestedSlug, name, description, JSON.stringify(body.metadata || {})]);
+
       const row = inserted.rows[0];
       await client.query(`
         INSERT INTO audit_events (project_id, event_type, actor, payload)
@@ -62,8 +64,16 @@ module.exports = async function handler(req, res) {
 
     return send(res, 201, { ok: true, project });
   } catch (error) {
-    if (error.code === 'PROJECT_SLUG_EXISTS') return send(res, 409, { ok: false, error: error.code, message: error.message });
-    if (error.code === 'DATABASE_NOT_CONFIGURED') return send(res, 503, { ok: false, error: error.code });
+    if (error.code === 'PROJECT_SLUG_EXISTS' || error.code === '23505') {
+      return send(res, 409, {
+        ok: false,
+        error: 'PROJECT_SLUG_EXISTS',
+        message: 'A project with this slug already exists'
+      });
+    }
+    if (error.code === 'DATABASE_NOT_CONFIGURED') {
+      return send(res, 503, { ok: false, error: error.code });
+    }
     console.error(error);
     return send(res, 500, { ok: false, error: 'PROJECTS_API_FAILED', message: error.message });
   }
